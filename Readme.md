@@ -135,7 +135,7 @@ _Browse all shared blog posts with elegant Material UI cards, tags, and engageme
 
 ### 📱 Responsive Design - Mobile View
 
-<img src="./bloglist-frontend/public/screenshots/mobile-menu.png" alt="Mobile responsive navigation" width="300"/>
+<img src="./bloglist-frontend/public/screenshots/mobile-menu.png" alt="Mobile responsive navigation" width="800"/>
 
 _Fully responsive design with mobile drawer navigation and touch-optimized interactions_
 
@@ -159,7 +159,7 @@ _Intuitive form for sharing external blog links with rich metadata_
 
 ### 🔔 Notifications - Stay Updated
 
-<img src="./bloglist-frontend/public/screenshots/notifications.png" alt="Notifications drawer" width="400"/>
+<img src="./bloglist-frontend/public/screenshots/notifications.png" alt="Notifications drawer" width="800"/>
 
 _Real-time notifications for likes, comments, and new followers_
 
