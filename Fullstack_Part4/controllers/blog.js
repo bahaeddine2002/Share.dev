@@ -8,6 +8,7 @@ const Comment = require("../models/comments");
 const multer = require("multer");
 const path = require("path");
 const mongoose = require("mongoose");
+const Notification = require("../models/notification");
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -246,6 +247,7 @@ blogsRouter.post(
     });
 
     const savedComment = await comment.save();
+    const Notification = require("../models/notification");
 
     blog.comments = blog.comments.concat(savedComment._id);
     const savedBlog = await blog.save();
@@ -254,6 +256,16 @@ blogsRouter.post(
       { path: "user", select: "username name" },
       { path: "comments", select: "content" },
     ]);
+
+    // Create a notification for the blog owner
+    if (blog.user.toString() !== request.user.id) {
+      await Notification.create({
+        recipient: blog.user,
+        sender: request.user.id,
+        type: "comment",
+        blog: blog._id,
+      });
+    }
 
     response.status(201).json(savedBlog);
   }
@@ -333,6 +345,15 @@ blogsRouter.put(
     await savedBlog.populate("user", { username: 1, name: 1, id: 1 });
     await savedBlog.populate("comments", { content: 1, id: 1 });
     await savedBlog.populate("likes", { username: 1, name: 1, id: 1 });
+
+    if (blog.user.toString() !== request.user.id) {
+      await Notification.create({
+        recipient: blog.user,
+        sender: request.user.id,
+        type: "like",
+        blog: blog._id,
+      });
+    }
 
     response.json(savedBlog);
   }

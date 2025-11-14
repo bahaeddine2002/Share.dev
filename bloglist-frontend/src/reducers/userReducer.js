@@ -1,7 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import loginService from '../services/login'
 import blogService from '../services/blogs'
-import { setNotifiction } from './notficationReducer'
 import axios from '../apiClient'
 
 const userSlice = createSlice({
@@ -23,10 +22,7 @@ export const login = (userObj) => {
       const user = await loginService.login(userObj)
 
       dispatch(setUser(user))
-      dispatch(setNotifiction(`Welcome ${user.name}`, 5))
-    } catch (error) {
-      dispatch(setNotifiction('Wrong username or password', 5))
-    }
+    } catch (error) {}
   }
 }
 

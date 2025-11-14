@@ -4,6 +4,7 @@ const User = require("../models/user");
 const logger = require("../utils/logger");
 const multer = require("multer");
 const path = require("path");
+const Notification = require("../models/notification");
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => cb(null, "uploads/avatars"),

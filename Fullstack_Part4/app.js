@@ -12,6 +12,7 @@ const loginRouter = require("./controllers/login");
 const passport = require("passport");
 const authRouter = require("./controllers/auth");
 const followRouter = require("./controllers/follow");
+const notificationsRouter = require("./controllers/notification");
 
 require("./utils/passport-setup");
 
@@ -38,10 +39,11 @@ app.use(cookieParser());
 app.use(passport.initialize());
 
 app.use("/api/auth", authRouter);
+app.use("/api/login", loginRouter);
 app.use("/api/users", usersRouter);
 app.use("/api/users", followRouter);
 app.use("/api/blogs", blogsRouter);
-app.use("/api/login", loginRouter);
+app.use("/api/notifications", notificationsRouter);
 
 if (process.env.NODE_ENV === "test") {
   const testingRouter = require("./controllers/testing");

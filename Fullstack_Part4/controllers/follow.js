@@ -2,6 +2,7 @@ const router = require("express").Router();
 const User = require("../models/user");
 const middleware = require("../utils/middleware");
 const mongoose = require("mongoose");
+const Notification = require("../models/notification");
 
 // 🔹 Follow a user
 router.post("/:id/follow", middleware.userExtractor, async (req, res) => {
@@ -33,6 +34,12 @@ router.post("/:id/follow", middleware.userExtractor, async (req, res) => {
   const updatedTarget = await User.findById(targetId)
     .populate("followers", "id username name")
     .populate("following", "id username name");
+
+  await Notification.create({
+    recipient: target._id,
+    sender: follower._id,
+    type: "follow",
+  });
 
   res.json(updatedTarget);
 });

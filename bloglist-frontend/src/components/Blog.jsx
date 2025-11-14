@@ -15,6 +15,7 @@ import {
   Avatar,
   Chip,
   IconButton,
+  Link,
 } from '@mui/material'
 import FavoriteIcon from '@mui/icons-material/Favorite'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
@@ -68,7 +69,7 @@ const Blog = () => {
           boxShadow: '0 4px 20px rgba(0,0,0,0.05)',
         }}
       >
-        {/* Cover Image (with fallback) */}
+        {/* Cover Image with fallback */}
         <CardMedia
           component="img"
           height="360"
@@ -86,7 +87,7 @@ const Blog = () => {
           }}
         />
 
-        {/* Title + Author */}
+        {/* Title */}
         <Typography
           variant="h3"
           sx={{
@@ -99,17 +100,36 @@ const Blog = () => {
           {blog.title}
         </Typography>
 
-        <Stack
-          direction="row"
-          spacing={2}
-          alignItems="center"
-          sx={{ mb: 3, color: '#6b7280' }}
-        >
+        {/* Author of the external article */}
+        <Typography variant="subtitle1" sx={{ color: '#6b7280', mb: 2 }}>
+          Article by <strong>{blog.author || 'Unknown author'}</strong>
+        </Typography>
+
+        {/* Clickable URL */}
+        <Typography variant="body1" sx={{ mb: 3 }}>
+          Source:{' '}
+          <Link
+            href={blog.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            sx={{
+              color: '#2563eb',
+              fontWeight: 600,
+              wordBreak: 'break-all',
+              '&:hover': { textDecoration: 'underline' },
+            }}
+          >
+            {blog.url}
+          </Link>
+        </Typography>
+
+        {/* Posted by user */}
+        <Stack direction="row" spacing={2} alignItems="center" sx={{ mb: 4 }}>
           <Avatar sx={{ bgcolor: '#2563eb' }}>
             {blog.user?.name?.charAt(0) || '?'}
           </Avatar>
-          <Typography variant="body1">
-            by {blog.user?.name || 'Anonymous'}
+          <Typography variant="body1" sx={{ color: '#6b7280' }}>
+            Shared by <strong>{blog.user?.name}</strong>
           </Typography>
         </Stack>
 
@@ -136,20 +156,7 @@ const Blog = () => {
 
         <Divider sx={{ mb: 4 }} />
 
-        {/* Blog Content */}
-        <Typography
-          variant="body1"
-          sx={{
-            color: '#374151',
-            whiteSpace: 'pre-line',
-            lineHeight: 1.7,
-            mb: 4,
-          }}
-        >
-          {blog.content || 'No content yet.'}
-        </Typography>
-
-        {/* Like / Delete Buttons */}
+        {/* Like / Delete */}
         <Stack direction="row" spacing={2} alignItems="center" sx={{ mb: 4 }}>
           <IconButton
             onClick={handleLike}
@@ -161,8 +168,9 @@ const Blog = () => {
           >
             {userHasLiked ? <FavoriteIcon /> : <FavoriteBorderIcon />}
           </IconButton>
+
           <Typography sx={{ color: '#6b7280' }}>
-            {blog.likes.length} {blog.likes.length === 1 ? 'Like' : 'Likes'}
+            {blog.likes.length} Likes
           </Typography>
 
           {blog.user?.username === user.username && (
@@ -179,7 +187,7 @@ const Blog = () => {
 
         <Divider sx={{ mb: 3 }} />
 
-        {/* Comments Section */}
+        {/* Comments */}
         <Typography variant="h5" sx={{ mb: 2 }}>
           Comments
         </Typography>

@@ -4,6 +4,7 @@ import {
   initializeBlog,
   fetchFeedBlogs, // 👈 import personalized feed action
 } from '../reducers/blogreducer'
+import { fetchNotifications } from '../reducers/notificationsReducer.js'
 import {
   Box,
   Typography,
@@ -18,6 +19,11 @@ const Dashboard = () => {
   const dispatch = useDispatch()
   const { items: blogs } = useSelector((state) => state.blogs)
   const [view, setView] = useState('all') // all | feed
+
+  // 🧠 Fetch notifications on mount
+  useEffect(() => {
+    dispatch(fetchNotifications())
+  }, [dispatch])
 
   // 🧠 Fetch blogs based on selected view
   useEffect(() => {

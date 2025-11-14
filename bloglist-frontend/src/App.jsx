@@ -14,6 +14,7 @@ import Footer from './components/Footer'
 import CreationForm from './components/CreationForm'
 import UserProfile from './components/UserProfile'
 import TagPage from './components/TagPage'
+import NotificationsPage from './components/NotificationsPage'
 
 const PrivateRoute = ({ children }) => {
   const user = useSelector((state) => state.user)
@@ -143,6 +144,15 @@ const App = () => {
             element={
               <PrivateRoute>
                 <CreationForm />
+              </PrivateRoute>
+            }
+          />
+
+          <Route
+            path="/notifications"
+            element={
+              <PrivateRoute>
+                <NotificationsPage />
               </PrivateRoute>
             }
           />

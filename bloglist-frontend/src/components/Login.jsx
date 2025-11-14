@@ -2,7 +2,6 @@
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { login } from '../reducers/userReducer'
-import Notifiction from './Notification'
 import {
   Box,
   Paper,
@@ -36,7 +35,6 @@ const Login = () => {
         minHeight: '80vh', // Adjust height as needed
       }}
     >
-      <Notifiction />
       <Paper
         sx={{
           p: 4, // A little less padding
