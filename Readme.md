@@ -480,13 +480,10 @@ Contributions are always welcome! Here's how you can help:
 
 **Baha Eddine** - Full Stack Developer
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?style=flat&logo=linkedin)](https://www.linkedin.com/in/bahaeddine2002)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?style=flat&logo=linkedin)](https://www.linkedin.com/in/baha-azouz-11a862364/)
 [![GitHub](https://img.shields.io/badge/GitHub-Follow-black?style=flat&logo=github)](https://github.com/bahaeddine2002)
-[![Portfolio](https://img.shields.io/badge/Portfolio-Visit-orange?style=flat&logo=google-chrome)](https://your-portfolio.com)
 
-- 💼 **Portfolio**: [your-portfolio.com](#)
-- 📧 **Email**: your.email@example.com
-- 🐦 **Twitter**: [@yourhandle](#)
+- 📧 **Email**: bahaazouz88@gmail.com
 
 ---
 
