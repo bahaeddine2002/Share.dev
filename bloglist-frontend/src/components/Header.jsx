@@ -55,7 +55,7 @@ const Header = () => {
     >
       {/* --- Logo --- */}
       <Typography variant="h6" sx={{ my: 2, fontWeight: 700 }}>
-        muse.
+        Share.dev
       </Typography>
 
       {/* --- Nav Links --- */}
@@ -161,7 +161,7 @@ const Header = () => {
               letterSpacing: 0.5,
             }}
           >
-            muse.
+            Share.dev
           </Typography>
 
           {/* --- Desktop Nav --- */}
